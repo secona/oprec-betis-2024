@@ -1,6 +1,12 @@
+import useFetch from "./useFetch"
+
 function App() {
+  const { data, loading } = useFetch("https://oprec-betis-be.up.railway.app/perahu");
+
+  if (loading) return <h1>Loading...</h1>
+
   return (
-    <h1>Hello World</h1>
+    <pre>{JSON.stringify(data, null, 2)}</pre>
   )
 }
 
