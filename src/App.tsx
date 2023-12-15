@@ -1,7 +1,8 @@
-import useFetch from "./useFetch"
+import getDaftarPerahu from "./api/perahu/getDaftarPerahu"
+import useAPI from "./api/useAPI"
 
 function App() {
-  const { data, loading } = useFetch("https://oprec-betis-be.up.railway.app/perahu");
+  const { data, loading } = useAPI(getDaftarPerahu)
 
   if (loading) return <h1>Loading...</h1>
 
