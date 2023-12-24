@@ -1,3 +1,4 @@
+import Perahu from "./Perahu"
 import getDaftarPerahu from "./api/perahu/getDaftarPerahu"
 import useAPI from "./api/useAPI"
 
@@ -7,7 +8,14 @@ function App() {
   if (loading) return <h1>Loading...</h1>
 
   return (
-    <pre>{JSON.stringify(data, null, 2)}</pre>
+    <div className="flex flex-wrap gap-2">
+      {data && data.daftarPerahu.map(perahu => (
+        <Perahu
+          key={perahu.id}
+          perahu={perahu}
+        />
+      ))}
+    </div>
   )
 }
 

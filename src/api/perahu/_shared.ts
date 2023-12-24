@@ -5,6 +5,6 @@ export interface Perahu {
   name: string,
   description: string,
   capacity: number,
-  colors: string,
+  color: string,
   is_sailing: boolean,
 }
