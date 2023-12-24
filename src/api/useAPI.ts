@@ -7,12 +7,14 @@ export default function useAPI<T extends object>(
   const [data, setData] = React.useState<T>()
   const [loading, setLoading] = React.useState(true)
 
-  React.useEffect(() => {
+  const refetch = React.useCallback(() => {
     fn().then(d => {
-      setData(d.data)
-      setLoading(false)
-    })
+      setData(d.data);
+      setLoading(false);
+    });
   }, []);
 
-  return { data, loading }
+  React.useEffect(refetch, []);
+
+  return { data, loading, refetch }
 }

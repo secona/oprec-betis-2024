@@ -4,21 +4,24 @@ import getDaftarPerahu from "./api/perahu/getDaftarPerahu"
 import useAPI from "./api/useAPI"
 
 function App() {
-  const { data, loading } = useAPI(getDaftarPerahu)
-
-  if (loading) return <h1>Loading...</h1>
+  const { data, loading, refetch } = useAPI(getDaftarPerahu)
 
   return (
     <main>
-      <BeliPerahuForm />
-      <div className="flex flex-wrap gap-2">
-        {data && data.daftarPerahu.map(perahu => (
-          <Perahu
-            key={perahu.id}
-            perahu={perahu}
-          />
-        ))}
-      </div>
+      <BeliPerahuForm onCreate={() => refetch()} />
+      {loading
+        ? <h1>Loading...</h1>
+        : (
+          <div className="flex flex-wrap gap-2">
+            {data && data.daftarPerahu.map(perahu => (
+              <Perahu
+                key={perahu.id}
+                perahu={perahu}
+              />
+            ))}
+          </div>
+        )
+      }
     </main>
   )
 }

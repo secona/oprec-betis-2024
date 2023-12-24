@@ -1,7 +1,11 @@
 import { useState } from "react"
-import postBeliPerahu, { PostBeliPerahuBody } from "./api/perahu/postBeliPerahu"
+import postBeliPerahu, { PostBeliPerahuBody, PostBeliPerahuResponse } from "./api/perahu/postBeliPerahu"
 
-export default function BeliPerahuForm() {
+export interface BeliPerahuFormProps {
+  onCreate?: (d: PostBeliPerahuResponse) => any;
+}
+
+export default function BeliPerahuForm({ onCreate }: BeliPerahuFormProps) {
   const [loading, setLoading] = useState(false);
 
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
@@ -16,7 +20,8 @@ export default function BeliPerahuForm() {
       capacity: Number(data.get("capacity")),
     };
 
-    postBeliPerahu(obj).then(() => {
+    postBeliPerahu(obj).then(d => {
+      onCreate?.(d.data);
       setLoading(false);
       alert("Sukses membeli perahu.");
       (event.target as any).reset();
