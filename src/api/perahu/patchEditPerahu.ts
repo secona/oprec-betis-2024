@@ -2,10 +2,10 @@ import axios from "axios"
 import { Perahu } from "./_shared"
 
 export interface PatchEditPerahuBody {
-  name: string,
-  description: string,
-  capacity: number,
-  color: string,
+  name?: string,
+  description?: string,
+  capacity?: number,
+  color?: string,
 }
 
 export interface PatchEditPerahuResponse {

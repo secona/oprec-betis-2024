@@ -1,10 +1,11 @@
 import { Perahu as PerahuType } from "./api/perahu/_shared"
 
 export interface PerahuProps {
-  perahu: PerahuType
+  edit: (perahu: PerahuType) => void;
+  perahu: PerahuType;
 }
 
-export default function Perahu({ perahu }: PerahuProps) {
+export default function Perahu({ perahu, edit }: PerahuProps) {
   return (
     <div className="rounded-md border-2 border-solid border-black py-3 px-4 w-96">
       <table className="border-spacing-x-2 border-separate">
@@ -29,6 +30,9 @@ export default function Perahu({ perahu }: PerahuProps) {
           <td>{perahu.is_sailing.toString()}</td>
         </tr>
       </table>
+      <button onClick={() => edit(perahu)}>
+        edit
+      </button>
     </div>
   )
 }
