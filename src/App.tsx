@@ -25,6 +25,7 @@ function App() {
                 edit={perahu => setEditing(perahu)}
                 key={perahu.id}
                 perahu={perahu}
+                onSail={refetch}
               />
             ))}
           </div>
