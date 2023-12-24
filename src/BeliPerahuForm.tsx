@@ -29,7 +29,10 @@ export default function BeliPerahuForm({ onCreate }: BeliPerahuFormProps) {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form
+      className="p-3 inline-flex flex-col gap-3 justify-center items-center mx-auto rounded-md border-black border-solid border-2"
+      onSubmit={onSubmit}
+    >
       <table className="border-spacing-x-2 border-separate">
         <tr>
           <td className="align-top font-bold">NAME</td>
@@ -87,8 +90,8 @@ export default function BeliPerahuForm({ onCreate }: BeliPerahuFormProps) {
           </td>
         </tr>
       </table>
-      <button className="rounded-md border-2 border-solid border-black py-1 px-5 font-semibold">
-        Beli
+      <button className="rounded-md border-2 border-solid border-black py-0.5 px-3">
+        beli
       </button>
     </form>
   )

@@ -11,7 +11,7 @@ function App() {
   const [editing, setEditing] = useState<null | PerahuType>(null);
 
   return (
-    <main>
+    <main className="flex flex-col items-center gap-10 p-5">
       <BeliPerahuForm onCreate={() => refetch()} />
       {editing != null && (
         <UpdatePerahuForm onUpdate={refetch} perahu={editing} close={() => setEditing(null)} />
@@ -19,13 +19,14 @@ function App() {
       {loading
         ? <h1>Loading...</h1>
         : (
-          <div className="flex flex-wrap gap-2">
+          <div className="max-w-screen-xl flex flex-wrap gap-2 justify-center">
             {data && data.daftarPerahu.map(perahu => (
               <Perahu
                 edit={perahu => setEditing(perahu)}
                 key={perahu.id}
                 perahu={perahu}
                 onSail={refetch}
+                onDelete={refetch}
               />
             ))}
           </div>

@@ -37,7 +37,7 @@ export default function UpdatePerahuForm({ close, perahu, onUpdate }: UpdatePera
   return (
     <div className="fixed inset-0 grid place-items-center bg-black bg-opacity-50" onClick={close}>
       <form onClick={e => e.stopPropagation()} className="top-0 left-0 bg-white p-5 rounded-md border-2 border-solid border-black" onSubmit={onSubmit}>
-        <table className="border-spacing-x-2 border-separate">
+        <table className="border-spacing-x-2 border-separate mb-3">
           <tr>
             <td className="align-top font-bold">NAME</td>
             <td>
@@ -98,12 +98,14 @@ export default function UpdatePerahuForm({ close, perahu, onUpdate }: UpdatePera
             </td>
           </tr>
         </table>
-        <button className="rounded-md border-2 border-solid border-black py-1 px-5 font-semibold" type="button" onClick={close}>
-          cancel
-        </button>
-        <button className="rounded-md border-2 border-solid border-black py-1 px-5 font-semibold">
-          update
-        </button>
+        <div className="flex flex-row justify-center">
+          <button className="rounded-md border-2 border-solid border-black mr-2 py-0.5 px-3" type="button" onClick={close}>
+            cancel
+          </button>
+          <button className="rounded-md border-2 border-solid border-black py-0.5 px-3">
+            update
+          </button>
+        </div>
       </form>
     </div>
   )
