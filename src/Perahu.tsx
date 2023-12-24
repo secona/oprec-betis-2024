@@ -27,7 +27,7 @@ export default function Perahu({ perahu, edit, onSail, onDelete }: PerahuProps) 
         </tr>
         <tr>
           <td className="align-top font-bold">COLOR</td>
-          <td>{perahu.color}</td>
+          <td>{perahu.color.charAt(0).toUpperCase() + perahu.color.slice(1).toLowerCase()}</td>
         </tr>
         <tr>
           <td className="align-top font-bold">STATUS</td>

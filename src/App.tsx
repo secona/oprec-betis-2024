@@ -20,15 +20,19 @@ function App() {
         ? <h1>Loading...</h1>
         : (
           <div className="max-w-screen-xl flex flex-wrap gap-2 justify-center">
-            {data && data.daftarPerahu.map(perahu => (
-              <Perahu
-                edit={perahu => setEditing(perahu)}
-                key={perahu.id}
-                perahu={perahu}
-                onSail={refetch}
-                onDelete={refetch}
-              />
-            ))}
+            {data &&
+              data
+                .daftarPerahu
+                .map(perahu => (
+                  <Perahu
+                    edit={perahu => setEditing(perahu)}
+                    key={perahu.id}
+                    perahu={perahu}
+                    onSail={refetch}
+                    onDelete={refetch}
+                  />
+                ))
+            }
           </div>
         )
       }
