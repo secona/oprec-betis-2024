@@ -35,7 +35,7 @@ export default function UpdatePerahuForm({ close, perahu, onUpdate }: UpdatePera
   };
 
   return (
-    <div className="fixed inset-0 grid place-items-center bg-black bg-opacity-50" onClick={close}>
+    <div className="fixed inset-0 grid place-items-center bg-black bg-opacity-60" onClick={close}>
       <form onClick={e => e.stopPropagation()} className="top-0 left-0 bg-white p-5 rounded-md border-2 border-solid border-black" onSubmit={onSubmit}>
         <table className="border-spacing-x-2 border-separate mb-3">
           <tr>
